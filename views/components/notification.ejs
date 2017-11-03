@@ -1,0 +1,15 @@
+<div class="columns">
+    <div class="column is-4 is-offset-4">
+        <% if (success) { %>
+            <div class="notification is-success" style="text-align: center;">
+                <p><%= success %></p>
+            </div>
+        <% } %>
+
+        <% if (error) { %>
+            <div class="notification is-danger" style="text-align: center;">
+                <p><%= error %></p>
+            </div>
+        <% } %>
+    </div>
+</div>

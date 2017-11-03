@@ -1,0 +1,45 @@
+<%- include('header') %>
+
+    <div class="columns">
+        <div class="column is-4 is-offset-4">
+            <form class="box" method="post" enctype="multipart/form-data">
+                <h2 class="title is-4">登录</h2>
+
+                <div class="field">
+                    <label class="label">用户名 <span class="to-red" style="color: red;">*<sapn></label>
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" placeholder="username" name="name">
+                        <span class="icon is-small is-left">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    
+                    <span class="icon is-small is-right">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    </p>
+                </div>
+
+                <div class="field">
+                    <label class="label">密码 <span class="to-red" style="color: red;">*<sapn></label>
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" name="password">
+                        <span class="icon is-small is-left">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                     
+                     <span class="icon is-small is-right">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    </p>
+                </div>
+
+                <div class="field is-grouped">
+                    <p class="control" style="width:100%;">
+                        <button class="button is-primary" style="display:block; width:100%;">登录</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<%- include('footer') %>

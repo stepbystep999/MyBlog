@@ -1,0 +1,63 @@
+<div class="columns">
+        <div class="column is-8 is-offset-2">
+			<div class="tabs">
+			  	<ul>
+			  		<li class="is-active">
+      					<a>
+					    	<span class="icon is-small"><i class="fa fa-file-text-o"></i></span>
+		        			<span>留言</span>
+		        		</a>
+		        	</li>
+			  	</ul>
+			</div>
+
+			<% comments.forEach(function (comment) { %>
+				<article class="media">
+				  	<figure class="media-left">
+				    	<p class="image is-64x64">
+				      	    <img src="/img/<%= comment.author.avatar %>">
+				    	</p>
+				  	</figure>
+
+				  	<div class="media-content">
+				    	<div class="content">
+				      		<p>
+				        		<a href="/posts?author=<%= comment.author._id %>"><strong><%= comment.author.name %></strong></a>
+				        		<small><%= comment.created_at %></small>
+
+				        		<br>
+
+				        		<%- comment.content %>
+				      		</p>
+				    	</div>
+
+					    <nav class="level is-mobile">
+					     	<div class="level-left"></div>
+							
+							<% if (user && comment.author._id && user._id.toString() === comment.author._id.toString()) { %>
+						      	<div class="level-right">
+                                    <a href="/posts/<%= post._id %>/comment/<%= comment._id %>/remove"><span class="tag is-danger">删除</span></a>
+						      	</div>
+					      	<% } %>
+					    </nav>
+					</div>
+				</article>
+			<% }) %>
+
+			<% if (user) { %>
+				<form method="post" action="/posts/<%= post._id %>/comment" style="margin-top: 16px;">
+				    <div class="field">
+				    	<p class="control">
+				        	<textarea  class="textarea" name="content" style="height: 120px;"></textarea>
+				        </p>
+				    </div>
+				    
+				    <div class="field is-grouped">
+		                <p class="control">
+		                    <button class="button is-primary">留言</button>
+		                </p>
+		            </div>
+				</form>
+			<% } %>
+		</div>
+	</div>

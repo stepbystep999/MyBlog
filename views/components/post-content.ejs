@@ -1,0 +1,37 @@
+<div class="columns">
+    <div class="column is-8 is-offset-2">
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-64x64">
+                    <img src="/img/<%= post.author.avatar %>">
+                </p>
+            </figure>
+
+            <div class="media-content" style="width:60%;">
+                <div class="content">
+                    <h3><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
+
+                    <div><%- post.content %></div>
+                </div>
+
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                        <span class="tag"><%= post.created_at %></span>
+                    </div>
+
+                    <div class="level-right">
+                        <!--<a class="level-item">-->
+                            <span class="tag">浏览(<%= post.pv %>)</span>
+                            <span class="tag">留言(<%= post.commentsCount %>)</span>
+
+                            <% if(user && post.author._id && user._id.toString() === post.author._id.toString()) { %>
+                                <a href="/posts/<%= post._id %>/edit"><span class="tag is-success">编辑</span></a>
+                                <a href="/posts/<%= post._id %>/remove"><span class="tag is-danger">删除</span></a>
+                            <% } %>
+                        <!--</a>-->
+                    </div>
+                </nav>
+            </div>
+        </article>
+    </div>
+</div>

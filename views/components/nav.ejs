@@ -1,0 +1,40 @@
+<nav class="nav has-shadow" style="width: 100%; position:fixed; top: 0; opacity: 0.8;">
+    <div class="container">
+        <div class="nav-left">
+            <a class="nav-item" href="/">
+                <!--<img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">-->
+                <img src="/resource/logo.png" alt="Blog logo">
+            </a>
+            <a class="nav-item is-tab is-hidden-mobile is-active" href="/">主页</a>
+            <!--<a class="nav-item is-tab is-hidden-mobile">列表</a>-->
+            <!--<a class="nav-item is-tab is-hidden-mobile">关于</a>-->
+        </div>
+
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        <div class="nav-right nav-menu">
+            <!--<a class="nav-item is-tab is-hidden-tablet is-active" href="/">主页</a>-->
+            <!--<a class="nav-item is-tab is-hidden-tablet">列表</a>-->
+            <!--<a class="nav-item is-tab is-hidden-tablet">关于</a>-->
+
+            <% if(user) { %>
+                <a class="nav-item is-tab" href="/posts/create">
+                    <figure class="image is-16x16" style="margin-right: 8px;">
+                        <img src="/img/<%= user.avatar %>">
+                    </figure>
+                    发表文章
+                </a>
+                <a class="nav-item is-tab" href="/signout">登出</a>
+            <% } else { %>
+                <a class="nav-item is-tab" href="/signin">登录</a>
+                <a class="nav-item is-tab" href="/signup">注册</a>
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<div style="height:52px;"></div>
